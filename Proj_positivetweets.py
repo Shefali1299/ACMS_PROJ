@@ -1,7 +1,6 @@
 from twitterscraper import query_tweets
 import datetime as dt
 import pandas as pd
-import csv
 import nltk
 # nltk.download('wordnet')
 import re
@@ -17,9 +16,17 @@ from nltk.corpus import wordnet
 lemmatizer = nltk.stem.WordNetLemmatizer()
 wordnet_lemmatizer = WordNetLemmatizer()
 
+# Taking inputs
+begin_date = int(input("Enter begin date"))
+begin_month = int(input("Enter begin month"))
+begin_year = int(input("Enter begin year"))
+end_date = int(input("Enter end date"))
+end_month = int(input("Enter end month"))
+end_year = int(input("Enter end year"))
+
 # paramters to define a tweet
-bd = dt.date(2015, 5, 1)
-ed = dt.date(2020, 5, 1)
+bd = dt.date(begin_year, begin_month, begin_date)
+ed = dt.date(end_year, end_month, end_date)
 ln = 'english'
 limit = 100000
 
@@ -138,7 +145,6 @@ data.drop_duplicates(subset="Lemmatize", keep='first', inplace=True)
 
 # To tokenize column Lemmatize and form new cloumn text
 data['Text'] = data.apply(lambda row: nltk.word_tokenize(row['Lemmatize']), axis=1)
-
 data.drop(['tweet', 'Lemmatize'], axis=1, inplace=True)
 
 # Categories to classify tweets
@@ -192,6 +198,4 @@ for r1 in data['Text']:
 print("Categories to classify positive tweets :")
 for i, j in final_res.items():
     print(i, ':', j)
-
-
 
