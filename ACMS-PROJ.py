@@ -1,7 +1,7 @@
 from twitterscraper import query_tweets
 import datetime as dt
 import pandas as pd
-import csv
+#import csv
 import nltk
 # nltk.download('wordnet')
 import re
@@ -152,9 +152,8 @@ data.drop(['tweet', 'Lemmatize'], axis=1, inplace=True)
 timing = ['ontime', 'beforetime', 'before', 'within', 'withintime', 'time', 'early']
 space = ['space', 'storage', 'large', 'huge', 'spacious', 'big', 'giant']
 functionality = ['comfort', 'good', 'handy', 'easy', 'convenient', 'smooth', 'pick', 'enjoy', 'clean', 'genius',
-                 'excite',
-                 'great', 'recommend', 'love', 'satisfy', 'happy', 'awesome', 'sharingiscaring', 'awesomeness',
-                 'cool''amuse', 'surprise', 'interesting', 'use', 'locker']
+                 'excite','great', 'recommend', 'love', 'satisfy', 'happy', 'awesome', 'sharingiscaring', 'awesomeness',
+                 'cool','amuse', 'surprise', 'interesting', 'use', 'locker']
 security = ['secure', 'lock', 'trust', 'safe', 'locksystem', 'codeword']
 location = ['nearby', 'close', 'marketplace', 'walk', 'near', 'around', 'corner',
             'locate', 'neighborhood', 'nearest', 'location']
